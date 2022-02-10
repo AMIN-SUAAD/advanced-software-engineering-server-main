@@ -17,6 +17,10 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
+app.get('/', (req, res) => {
+  res.send('hello')
+})
+
 client.connect((err) => {
   const orderCollection = client.db("ema-john").collection("orderCollection");
   console.log("connected");
