@@ -3,7 +3,6 @@ const cors = require("cors");
 const { MongoClient } = require("mongodb");
 
 const app = express();
-
 const port = process.env.PORT || 5000;
 
 app.use(cors());
@@ -16,8 +15,6 @@ const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-
 
 client.connect((err) => {
   const orderCollection = client.db("ema-john").collection("orderCollection");
@@ -34,8 +31,6 @@ client.connect((err) => {
       }
     });
   });
-
-  // client.close();
 });
 
 app.listen(port, () => {
